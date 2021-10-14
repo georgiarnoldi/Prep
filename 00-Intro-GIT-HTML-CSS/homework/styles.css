@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h1 {color: tomato}
 img {width: 400px;height:275px}
 div#thirdDIv{width: 500px;
@@ -9,3 +10,16 @@ div#thirdDIv{width: 500px;
              border-width: medium;} 
 span#spanId{font-size: 25px;
             margin-left: 50px;}
+=======
+h1 {color: tomato}
+img {width: 400px;height:275px}
+div#thirdDIv{width: 500px;
+             height: 600px;
+             background-color:yellow;
+             padding: 50px;
+             border-color: tomato;
+             border-style: solid;
+             border-width: medium;} 
+span#spanId{font-size: 25px;
+            margin-left: 50px;}
+>>>>>>> 78dc2e364b8ed532c6f1edfb335bcf63604e936d
