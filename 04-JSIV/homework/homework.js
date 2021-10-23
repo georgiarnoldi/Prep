@@ -3,14 +3,14 @@
 function invocarCallback(cb) {
   // Invoca al callback `cb`
   // Tu código:
-
+   cb()
 }
 
 function operacionMatematica(n1, n2, cb) {
   // Vamos a recibir una función que realiza una operación matemática como callback junto con dos números.
   // Devolver lo que retorne el ejecutar el callback pasándole como argumentos los números recibidos.
   // Tu código:
-
+ return cb(n1,n2)
 }
 
 function sumarArray(numeros, cb) {
@@ -18,28 +18,35 @@ function sumarArray(numeros, cb) {
   // Pasa el resultado a `cb`
   // No es necesario devolver nada
   // Tu código:
-
-}
+  var sumaTotal = numeros.reduce (function(acum,elem) {
+    return acum = acum + elem; 
+     }); 
+    cb (sumaTotal);
+  }
 
 function forEach(array, cb) {
   // Itera sobre el array "array" y pasa los valores al callback uno por uno
   // Pista: Estarás invocando a `cb` varias veces (una por cada elemento el arreglo)
   // Tu código:
-
+array.forEach (cb) 
 }
 
 function map(array, cb) {
   // Itera sobre cada elemento de "array", pásalo a `cb` y luego ubicar el valor devuelto por `cb` en un nuevo array
   // El nuevo array debe tener la misma longitud que el array del argumento
   // Tu código:
-
+var newMap= array.map(cb);
+return newMap
 }
 
 function filter(array) {
   // Filtrar todos los elementos del array que comiencen con la letra "a".
   // Devolver un nuevo array con los elementos que cumplen la condición
   // Tu código:
-
+var AFilter = array.filter(function(element) {
+   return element [0] === 'a';
+} )
+return AFilter
 }
 
 // ---- Ejercicios de Repaso ----
@@ -54,7 +61,7 @@ function deObjetoArray(objeto){
       C: 3
      }) ➞ [["D", 1], ["B", 2], ["C", 3]]*/
   // Tu código:
-
+  return Object.entries (objeto)
 }
 
 function numberOfCharacters(string) {
@@ -62,6 +69,15 @@ function numberOfCharacters(string) {
   // en formato par clave-valor.
   // Ej: Recibe ---> "adsjfdsfsfjsdjfhacabcsbajda" || Devuelve ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 } 
   // Tu código:
+var caracteres = {};
+for (var i = 0; i< string.length;i++) {
+  if ( !caracteres[string[i]]) {
+      caracteres[string[i]] = 1;  } 
+    else {
+    caracteres[string[i]] = caracteres[string[i]] + 1;
+  }
+}
+    return caracteres;
 
 }
 
@@ -70,14 +86,22 @@ function capicua(numero){
   // La misma debe retornar: "Es capicua" si el número se lee igual de 
   // izquierda a derecha que de derecha a izquierda. Caso contrario retorna "No es capicua"
   // Tu código:
-
+var EsCapicua = numero.toString ();
+var medio = Math.floor(EsCapicua.length/2);
+for (var i=0; i<=medio;i++) {
+  if (EsCapicua[i] !== EsCapicua[EsCapicua.length-1-i ]) return 'No es capicua';
+  } 
+  return 'Es capicua'
 }
+
 
 function deleteAbc(cadena){
   // Define una función que elimine las letras "a", "b" y "c" de la cadena dada 
   // y devuelva la versión modificada o la misma cadena, en caso de no contener dichas letras.
   // Tu código:
-
+  var array = cadena.split ('');
+  var arrayFiltro = array.filter(letra => letra !== 'a' && letra !== 'b' && letra !== 'c');
+  return arrayFiltro.join ('');
 }
 
 function buscoInterseccion(arreglo1, arreglo2){
@@ -86,6 +110,13 @@ function buscoInterseccion(arreglo1, arreglo2){
   // Si no tienen elementos en común, retornar un arreglo vacío.
   // Aclaración: los arreglos no necesariamente tienen la misma longitud
   // Tu código:
+ var nuevoGrupo = [] ;
+ for (var i= 0; i< arreglo1.length ; i++) {
+   for (var j=0; j< arreglo2.length; i++) {
+     if(arreglo1[i]===arreglo2[j]) nuevoGrupo.push(arreglo1[i]);
+   }
+ }
+ return nuevoGrupo
 
 }
 
